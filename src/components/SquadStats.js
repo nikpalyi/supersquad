@@ -1,49 +1,38 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class SquadStats extends Component {
-  static propTypes = {
-    heroes: PropTypes.array
-  };
-
-  strength = () => {
+  strength() {
     let strength = 0;
-    this.props.heroes.forEach(hero => {
-      strength += hero.strength;
-    });
+    this.props.heroes.forEach(hero => (strength += hero.strength));
     return strength;
-  };
+  }
 
-  intelligence = () => {
+  intelligence() {
     let intelligence = 0;
-    this.props.heroes.forEach(hero => {
-      intelligence += hero.intelligence;
-    });
+    this.props.heroes.forEach(hero => (intelligence += hero.intelligence));
     return intelligence;
-  };
+  }
 
-  speed = () => {
+  speed() {
     let speed = 0;
-    this.props.heroes.forEach(hero => {
-      speed += hero.speed;
-    });
+    this.props.heroes.forEach(hero => (speed += hero.speed));
     return speed;
-  };
+  }
 
   render() {
     return (
       <div>
-        <h4>SquadStats</h4>
-        <ul className='list-grop'>
+        <h4>Squad Stats</h4>
+        <ul className='list-group'>
           <li className='list-group-item'>
-            <b>Overall Strength: {this.strength()}</b>
+            <b>Overall Strength:</b> {this.strength()}
           </li>
           <li className='list-group-item'>
-            <b>Overall Strength: {this.intelligence()}</b>
+            <b>Overall Intelligence:</b> {this.intelligence()}
           </li>
           <li className='list-group-item'>
-            <b>Overall Strength: {this.speed()}</b>
+            <b>Overall Speed:</b> {this.speed()}
           </li>
         </ul>
       </div>
